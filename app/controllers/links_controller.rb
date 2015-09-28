@@ -10,7 +10,7 @@ class LinksController < ApplicationController
       render :show
     else
       flash.now[:errors] = @link.errors.full_messages
-      render :show
+      render :new
     end
   end
 
