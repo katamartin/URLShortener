@@ -1,2 +1,3 @@
 <h1>New Link Created</h1>
-<%= request.host + @link.short_url %>
+<% link = "#{request.protocol}#{request.host_with_port}/#{@link.short_url}" %>
+<a href="<%= link %>"><%= link %></a>
