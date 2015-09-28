@@ -19,7 +19,7 @@ class LinksController < ApplicationController
     if @link
       redirect_to @link.long_url
     else
-      flash.now[:errors] = ["Invalid url"]
+      flash.now[:errors] = ["#{params[:short_url]} not registered"]
       render :invalid
     end
   end
