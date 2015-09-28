@@ -1,4 +1,9 @@
 class LinksController < ApplicationController
+  def new
+    @link = Link.new()
+    render: new
+  end
+
   def shorten
     @link = Link.new(long_url: params[:url])
     if @link.save
