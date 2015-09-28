@@ -20,6 +20,7 @@ class LinksController < ApplicationController
       redirect_to @link.long_url
     else
       flash.now[:errors] = ["Invalid url"]
+      render :invalid
     end
   end
 end
