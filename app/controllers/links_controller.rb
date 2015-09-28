@@ -9,8 +9,12 @@ class LinksController < ApplicationController
     if @link.save
       render :show
     else
-      flash.now[:errors] = @link.errors.full_messages
-      render :new
+      if Link.find_by_long_url(params[:url])
+        render :show
+      else
+        flash.now[:errors] = @link.errors.full_messages
+        render :new
+      end
     end
   end
 
