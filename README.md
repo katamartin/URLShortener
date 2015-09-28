@@ -14,6 +14,9 @@ def create_short_url
   self.short_url ||= self.long_url.hash.to_s(36)
 end
 ```
+An entry in the database is created for the `long_url` if one does not already
+exist and the shortened link is returned.
 
 When a GET request is made to '/' with a :short_url in params, the database is
-queried for a `Link` with that short_url.
+queried for a `Link` with that short_url. If such a `Link` is found, the app
+redirects to the corresponding `long_url`.
