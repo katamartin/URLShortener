@@ -9,6 +9,11 @@ class LinksController < ApplicationController
   end
 
   def redirect
-
+    @link = Link.find(short_url: params[:short_url])
+    if @link
+      redirect_to @link.long_url
+    else
+      flash.now[:errors] = ["Invalid url"]
+    end
   end
 end
