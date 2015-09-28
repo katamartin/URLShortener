@@ -14,7 +14,7 @@ class LinksController < ApplicationController
   end
 
   def redirect
-    @link = Link.find(short_url: params[:short_url])
+    @link = Link.find_by_short_url(params[:short_url])
     if @link
       redirect_to @link.long_url
     else
